@@ -32,13 +32,15 @@ function hint(msg, args) {
 function calculateVersion(officialRelease, callback) {
     var version = require('./package.json').version;
 
-    if (officialRelease) {
-        callback(version);
-    } else {
-        git.short(function (str) {
-            callback(version + '+' + str);
-        });
-    }
+    callback(version);
+    
+    // if (officialRelease) {
+    //     callback(version);
+    // } else {
+    //     git.short(function (str) {
+    //         callback(version + '+' + str);
+    //     });
+    // }
 }
 
 
@@ -50,6 +52,7 @@ task('lintspec', {async: true}, hint('Checking for specs JS errors...', 'spec/su
 
 desc('Combine and compress Leaflet Draw source files');
 task('build', {async: true}, function (compsBase32, buildName, officialRelease) {
+    console.log(compsBase32, buildName, officialRelease);
     calculateVersion(officialRelease, function (v) {
         build.build(complete, v, compsBase32, buildName);
     });
