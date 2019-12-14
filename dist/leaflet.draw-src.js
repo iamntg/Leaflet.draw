@@ -2745,7 +2745,7 @@ L.Edit.Circle = L.Edit.CircleMarker.extend({
 
 	_resize: function (latlng) {
 		var moveLatLng = this._moveMarker.getLatLng();
-
+		var radius;
 		// Calculate the radius based on the version
 		if (L.GeometryUtil.isVersion07x()) {
 			radius = moveLatLng.distanceTo(latlng);
@@ -3158,7 +3158,7 @@ L.LatLngUtil = {
 
 			if (isMetric) {
 				units = ['ha', 'm'];
-				type = typeof isMetric;
+				var type = typeof isMetric;
 				if (type === 'string') {
 					units = [isMetric];
 				} else if (type !== 'boolean') {
