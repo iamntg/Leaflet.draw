@@ -1,5 +1,5 @@
 {
-  "name": "leaflet-draw",
+  "name": "leaflet-draw-ntg",
   "version": "1.0.4",
   "description": "Vector drawing plugin for Leaflet",
   "devDependencies": {
